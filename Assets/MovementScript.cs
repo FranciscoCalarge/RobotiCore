@@ -16,6 +16,7 @@ public class MovementScript : MonoBehaviour
     {
         Vector3 lookOffset = transform.position-camera.position;
         transform.forward = new Vector3(lookOffset.x,0,lookOffset.z);
+        if(Input.GetKey(KeyCode.Space)) body.AddForce(transform.up*800*Time.deltaTime, ForceMode.Acceleration);
         body.MovePosition(transform.position+camera.right*Input.GetAxis("Horizontal")/10+camera.forward*Input.GetAxis("Vertical")/10);
 
     }

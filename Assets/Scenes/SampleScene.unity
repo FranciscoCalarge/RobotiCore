@@ -1156,7 +1156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420096279}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2501733, y: -0.09061619, z: 0.023524532, w: 0.9636642}
+  m_LocalRotation: {x: 0.25017366, y: -0.090616174, z: 0.023524566, w: 0.96366405}
   m_LocalPosition: {x: -3.01, y: 2.2100005, z: -13.360001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -1194,11 +1194,11 @@ ParentConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -3.01, y: 2.2100005, z: -13.360001}
-  m_RotationAtRest: {x: 16.692575, y: -5.9679155, z: 0.7010647}
+  m_RotationAtRest: {x: 29.106192, y: -10.743798, z: 0}
   m_TranslationOffsets:
   - {x: 0.74, y: 2.21, z: -3.9000006}
   m_RotationOffsets:
-  - {x: 16.692575, y: -5.9679155, z: 0.7010646}
+  - {x: 29.106195, y: -10.743798, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -2169,9 +2169,10 @@ GameObject:
   - component: {fileID: 481103920}
   - component: {fileID: 919132148267434819}
   - component: {fileID: 919132148267434820}
+  - component: {fileID: 919132148267434821}
   m_Layer: 0
   m_Name: NewProtag
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2201,7 +2202,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &919132148267434820
 MonoBehaviour:
@@ -2220,6 +2221,19 @@ MonoBehaviour:
   isCameraParented: 1
   boostRect: {fileID: 1402396204}
   _boostCD: 5
+--- !u!114 &919132148267434821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148267434818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaf9c45265619d45873e38b84adc81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 2903724682167120469, guid: a48bfc7b58be2834ca0a2da711cd50c9, type: 3}
 --- !u!1 &919132149620654701
 GameObject:
   m_ObjectHideFlags: 0

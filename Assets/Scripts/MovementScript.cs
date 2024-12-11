@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovementScript : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class MovementScript : MonoBehaviour
 
     [SerializeField] private RectTransform boostRect;
     [SerializeField] private float _boostCD =5f;
+    private Animator _animator;
     private float _initialBoostCD;
     private bool _isBoostEmpty=false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
         _initialBoostCD = _boostCD;
@@ -26,7 +29,7 @@ public class MovementScript : MonoBehaviour
         {
             _boostCD += Time.deltaTime;
         }
-        if (_boostCD > _initialBoostCD) { _isBoostEmpty = false; _boostCD = _initialBoostCD; }
+        if (_boostCD > _initialBoostCD) { _isBoostEmpty = false; _boostCD = _initialBoostCD; boostRect.GetComponent<RawImage>().color = Color.blue; }
         boostRect.localScale = new Vector3(1, Mathf.Min(_boostCD/_initialBoostCD,1),1);
         
         Vector3 lookOffset = transform.position-PlayerCamera.position;
@@ -50,9 +53,14 @@ public class MovementScript : MonoBehaviour
         }
         else
         {
+            _boostCD = 0;
             _isBoostEmpty = true;
+            boostRect.GetComponent<RawImage>().color = Color.red;
         }
         body.MovePosition(transform.position+PlayerCamera.right*Input.GetAxis("Horizontal")/10+PlayerCamera.forward*Input.GetAxis("Vertical")/10);
+
+        _animator.SetFloat("BlendX", Input.GetAxis("Horizontal"));
+        _animator.SetFloat("BlendY", Input.GetAxis("Vertical"));
 
     }
 }

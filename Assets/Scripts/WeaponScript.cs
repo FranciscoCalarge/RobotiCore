@@ -3,6 +3,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private Vector3 shootOffset;
     private float _projectileInterval = .5f;
     private float _weaponCD = 1.5f;
     private float _initialWeaponCD;
@@ -22,8 +23,8 @@ public class WeaponScript : MonoBehaviour
             if (_weaponCD < 0)
             {
                 _weaponCD += _projectileInterval;
-                GameObject aux =  Instantiate(BulletPrefab,transform.position, transform.localRotation);
-                aux.GetComponent<Rigidbody>().linearVelocity = transform.forward*10;
+                GameObject aux =  Instantiate(BulletPrefab,transform.position , transform.localRotation);
+                aux.GetComponent<Rigidbody>().linearVelocity = transform.forward*20;
 
             }
         }

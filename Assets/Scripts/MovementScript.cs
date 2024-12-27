@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
 
     [SerializeField] private RectTransform boostRect;
     [SerializeField] private float _boostCD =5f;
+    private Vector2 smoothMovementVector;
     private Animator _animator;
     private float _initialBoostCD;
     private bool _isBoostEmpty=false;
@@ -57,10 +58,14 @@ public class MovementScript : MonoBehaviour
             _isBoostEmpty = true;
             boostRect.GetComponent<RawImage>().color = Color.red;
         }
-        body.MovePosition(transform.position+PlayerCamera.right*Input.GetAxis("Horizontal")/10+PlayerCamera.forward*Input.GetAxis("Vertical")/10);
 
-        _animator.SetFloat("BlendX", Input.GetAxis("Horizontal"));
-        _animator.SetFloat("BlendY", Input.GetAxis("Vertical"));
+
+        body.MovePosition(transform.position+PlayerCamera.right*smoothMovementVector.x/10+PlayerCamera.forward*smoothMovementVector.y/10);
+
+        smoothMovementVector=Vector2.Lerp(smoothMovementVector, new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), .05f);
+
+        _animator.SetFloat("BlendX", smoothMovementVector.x);
+        _animator.SetFloat("BlendY", smoothMovementVector.y);
 
     }
 }

@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 2903724682167120469, guid: a48bfc7b58be2834ca0a2da711cd50c9, type: 3}
-  shootOffset: {x: 0, y: 2.1, z: 2.12}
+  _shootPosition: {fileID: 5290047173431216128}
 --- !u!1 &1194431131
 GameObject:
   m_ObjectHideFlags: 0

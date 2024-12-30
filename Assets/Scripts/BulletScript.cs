@@ -6,7 +6,9 @@ public class BulletScript : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player"))
         {
+            
             Destroy(this.gameObject);
+            
         }
     }
 }

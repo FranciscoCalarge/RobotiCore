@@ -90,7 +90,7 @@ MonoBehaviour:
   - rid: 7083564688357720502
   - rid: 7083564688357720952
   - rid: 7083564705175044308
-  m_VersionTimestamp: 638708945586293945
+  m_VersionTimestamp: 638717728633007567
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -8874307863000833300}
@@ -171,7 +171,7 @@ MonoBehaviour:
   - rid: 7083564688357721076
   - rid: 7083564705175044296
   - rid: 7083564705175044305
-  m_VersionTimestamp: 638708962655571395
+  m_VersionTimestamp: 638717728633007567
   m_DebugInfo: {fileID: 723225774044390851}
   m_RuntimeGraph: {fileID: 3404062668111515633}
   AssetID:
@@ -601,7 +601,7 @@ MonoBehaviour:
     - rid: 7083564688357720866
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -672.53656, y: 383.85052}
+        Position: {x: -699.2321, y: 388.40942}
         ID:
           m_Value0: 5649492022045543267
           m_Value1: 6275283236803063911
@@ -649,7 +649,7 @@ MonoBehaviour:
         LocalValue:
           rid: 7083564688357720871
         LinkedVariable:
-          rid: 7083564688357720872
+          rid: -2
     - rid: 7083564688357720870
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -669,16 +669,6 @@ MonoBehaviour:
           m_Value0: 0
           m_Value1: 0
         Name: 
-        m_Value: {fileID: 0}
-    - rid: 7083564688357720872
-      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        IsExposed: 1
-        m_IsShared: 0
         m_Value: {fileID: 0}
     - rid: 7083564688357720873
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
@@ -1287,7 +1277,7 @@ MonoBehaviour:
         BlackboardReference:
           rid: 7083564705175044313
         BlackboardGroupReferences: []
-        m_VersionTimestamp: 638708962655571395
+        m_VersionTimestamp: 638717728633007567
     - rid: 7083564705175044312
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:

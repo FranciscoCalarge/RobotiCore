@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MovementScript : MonoBehaviour
+public class MovementScript : Singleton<MovementScript>
 {
     public Rigidbody body;
     public Transform PlayerCamera;
@@ -13,6 +13,9 @@ public class MovementScript : MonoBehaviour
     private Animator _animator;
     private float _initialBoostCD;
     private bool _isBoostEmpty=false;
+
+    public float _aimStanceLerp;
+    public Animator _cameraAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,6 +69,8 @@ public class MovementScript : MonoBehaviour
 
         _animator.SetFloat("BlendX", smoothMovementVector.x);
         _animator.SetFloat("BlendY", smoothMovementVector.y);
-
+        _animator.SetLayerWeight(1, _aimStanceLerp);
+        _cameraAnimator.SetFloat("Blend", _aimStanceLerp);
     }
+
 }

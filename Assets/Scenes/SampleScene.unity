@@ -42,8 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1673,7 +1672,7 @@ Transform:
   m_GameObject: {fileID: 460549541}
   serializedVersion: 2
   m_LocalRotation: {x: -0.1515154, y: 0.32445145, z: -0.018325072, w: 0.93350875}
-  m_LocalPosition: {x: 1.920049, y: 1.4532146, z: 2.420297}
+  m_LocalPosition: {x: 2.21, y: 1.43, z: 2.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3903,7 +3902,7 @@ Transform:
   m_GameObject: {fileID: 1356671152}
   serializedVersion: 2
   m_LocalRotation: {x: -0.05686597, y: 0.17681743, z: -0.015852803, w: 0.9824717}
-  m_LocalPosition: {x: -2.9527807, y: -1.7949361, z: 3.0591536}
+  m_LocalPosition: {x: -3.1, y: -1.73, z: 3.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4302,8 +4301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420096279}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.056865916, y: -0.17681758, z: 0.015852872, w: 0.98247164}
-  m_LocalPosition: {x: 2.297, y: 3.146, z: -1.622}
+  m_LocalRotation: {x: 0.045006786, y: -0.13576938, z: 0.009506337, w: 0.989672}
+  m_LocalPosition: {x: 1.46, y: 3.146, z: -1.622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

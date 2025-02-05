@@ -32,7 +32,6 @@ public partial class CustomPatrolAction : Action
         if(Vector3.Distance(self.transform.position, currentTarget.transform.position) <= minDistance)
         {
             UpdateTarget();
-            Debug.Log("great success");
             return Status.Success;
         }
         else

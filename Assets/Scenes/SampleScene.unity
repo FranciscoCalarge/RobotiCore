@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -4844,7 +4845,7 @@ GameObject:
   - component: {fileID: 1763452326}
   m_Layer: 0
   m_Name: ZinEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6385,7 +6386,7 @@ Transform:
   m_Children:
   - {fileID: 204412819642246185}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.00000004357993, y: 90.00008, z: 0.059265073}
 --- !u!137 &57574268681992420
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -6609,7 +6610,7 @@ GameObject:
   - component: {fileID: 7617673726644464266}
   m_Layer: 0
   m_Name: GunThingy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6645,13 +6646,79 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653275953367}
   - component: {fileID: 11724731}
+  - component: {fileID: 919132149620654704}
+  - component: {fileID: 919132149620654703}
+  - component: {fileID: 919132149620654702}
   m_Layer: 0
   m_Name: UnidadeZin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!54 &919132149620654702
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149620654701}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &919132149620654703
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149620654701}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &919132149620654704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149620654701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4380bf268846243989c2a1ff720adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 2903724682167120469, guid: 774702321e8d672439df0358d4d6acc1, type: 3}
+  playerInstance: {fileID: 0}
+  fireBoneTransform: {fileID: 9130093430938677504}
 --- !u!4 &1141775396969585886
 Transform:
   m_ObjectHideFlags: 0
@@ -6667,7 +6734,7 @@ Transform:
   m_Children:
   - {fileID: 2022312632293981305}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -0.000013660378, z: 0}
 --- !u!4 &1306592722356168763
 Transform:
   m_ObjectHideFlags: 0
@@ -6683,7 +6750,7 @@ Transform:
   m_Children:
   - {fileID: 4205552168965440546}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.0000058146693, y: 46.39716, z: 0.000015552698}
 --- !u!4 &1328603484595733975
 Transform:
   m_ObjectHideFlags: 0
@@ -6796,7 +6863,7 @@ GameObject:
   - component: {fileID: 3931080087750540388}
   m_Layer: 0
   m_Name: BottomHalf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6861,7 +6928,7 @@ GameObject:
   - component: {fileID: 57574268681992420}
   m_Layer: 0
   m_Name: Cube.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7126,7 +7193,7 @@ Transform:
   - {fileID: 7617673726644464266}
   - {fileID: 7856544348995470840}
   m_Father: {fileID: 8879528566914304073}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 88.31518, y: -90.00028, z: -90.00028}
 --- !u!135 &3931080087750540387
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7186,7 +7253,7 @@ GameObject:
   - component: {fileID: 9130093430938677504}
   m_Layer: 0
   m_Name: GunThingy_end
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7218,7 +7285,7 @@ GameObject:
   - component: {fileID: 4317544571654398389}
   m_Layer: 0
   m_Name: FrontPiston.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7315,7 +7382,7 @@ Transform:
   m_Children:
   - {fileID: 7079019855271848484}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.00000004357993, y: -90.00008, z: -0.059265073}
 --- !u!1 &4406082729672610615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7391,7 +7458,7 @@ GameObject:
   - component: {fileID: 25909879303445774}
   m_Layer: 0
   m_Name: FrontPiston.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7407,7 +7474,7 @@ GameObject:
   - component: {fileID: 1141775396969585886}
   m_Layer: 0
   m_Name: GunBarrel1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7501,7 +7568,7 @@ GameObject:
   - component: {fileID: 1306592722356168763}
   m_Layer: 0
   m_Name: BackPiston.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7517,7 +7584,7 @@ GameObject:
   - component: {fileID: 6244675009142712946}
   m_Layer: 0
   m_Name: BackPiston.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7600,7 +7667,7 @@ Transform:
   m_Children:
   - {fileID: 317395376830943451}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.0000058146693, y: -46.39716, z: -0.000015552698}
 --- !u!4 &6249699457752263738
 Transform:
   m_ObjectHideFlags: 0
@@ -7632,7 +7699,7 @@ Transform:
   m_Children:
   - {fileID: 4259111749727594951}
   m_Father: {fileID: 7856544348995470840}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.000017986085, y: 0.40133896, z: 90.00001}
 --- !u!1 &6520357248032055969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,7 +7791,7 @@ GameObject:
   - component: {fileID: 7856544348995470840}
   m_Layer: 0
   m_Name: TopHalf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7740,7 +7807,7 @@ GameObject:
   - component: {fileID: 8879528566914304073}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7998,7 +8065,7 @@ Transform:
   m_Children:
   - {fileID: 6488877869383676888}
   m_Father: {fileID: 3931080087750540386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.053001e-15, y: 90.00001, z: -180}
 --- !u!4 &7967766326302491868
 Transform:
   m_ObjectHideFlags: 0
@@ -8189,7 +8256,7 @@ Transform:
   m_Children:
   - {fileID: 3931080087750540386}
   m_Father: {fileID: 543450653275953367}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!4 &8879528567874152220
 Transform:
   m_ObjectHideFlags: 0

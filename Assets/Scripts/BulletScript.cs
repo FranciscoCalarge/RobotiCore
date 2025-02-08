@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BulletScript : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class BulletScript : MonoBehaviour
             Debug.Log(other.gameObject.tag);
             Debug.Log("spawntag"+spawnTag);
 
-            Destroy(this.gameObject);
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<VisualEffect>().SendEvent("OnDeath");
+            gameObject.GetComponent<VisualEffect>().SetFloat("ScaleOverride",0f);
+            Destroy(this.gameObject, 1f);
             
         }
     }

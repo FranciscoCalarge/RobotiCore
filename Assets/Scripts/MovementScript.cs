@@ -20,10 +20,6 @@ public class MovementScript : Singleton<MovementScript>
 
     public Material _materialTemplate;
 
-    int healthPoints = 3;
-    float initialDmgCooldown = 5;
-    float dmgCooldowAux  = 2f;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -79,30 +75,6 @@ public class MovementScript : Singleton<MovementScript>
         _animator.SetLayerWeight(1, _aimStanceLerp);
         _cameraAnimator.SetFloat("Blend", _aimStanceLerp);
 
-        dmgCooldowAux += Time.deltaTime;
-        if (healthPoints < 3 && dmgCooldowAux >= initialDmgCooldown)
-        {
-            healthPoints++;
-            dmgCooldowAux = 0;
-            _materialTemplate.SetFloat("dmgAmt", 1 - (healthPoints / 15));
-        }
-        else
-        {
-        }
-    }
-
-    public void TakeDamage()
-    {
-        healthPoints--;
-        dmgCooldowAux = 0;
-        if (healthPoints < 0)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            _materialTemplate.SetFloat("dmgAmt" , 1-( healthPoints/15));
-        }
     }
 
 }

@@ -23,7 +23,7 @@ public class ZinUnitScript : MonoBehaviour
     {
         if (damage >= 0) {
             if(_deathVFXPrefab != null)Instantiate(_deathVFXPrefab);
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 1f);
         }
     }
 

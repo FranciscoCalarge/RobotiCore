@@ -6,6 +6,8 @@ public class ZinUnitScript : MonoBehaviour
     public GameObject BulletPrefab;
     public GameObject playerInstance;
     public Transform fireBoneTransform;
+
+    public GameObject _deathVFXPrefab;
     public void FireEvent()
     {
         playerInstance = MovementScript.Instance.gameObject;
@@ -15,6 +17,14 @@ public class ZinUnitScript : MonoBehaviour
         aux.GetComponent<Rigidbody>().linearVelocity = targetDir *5;
         aux.GetComponent<BulletScript>().spawnTag = transform.gameObject.tag;
 
+    }
+
+    public void TakeDamage(int damage= 0)
+    {
+        if (damage >= 0) {
+            if(_deathVFXPrefab != null)Instantiate(_deathVFXPrefab);
+            Destroy(this.gameObject, 5f);
+        }
     }
 
 }

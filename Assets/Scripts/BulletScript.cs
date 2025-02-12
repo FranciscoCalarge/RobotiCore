@@ -9,7 +9,6 @@ public class BulletScript : MonoBehaviour
 
         if (!other.gameObject.CompareTag(spawnTag))
         {
-            Debug.Log(other.gameObject.tag);
             Debug.Log("spawntag"+spawnTag);
 
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -18,5 +17,15 @@ public class BulletScript : MonoBehaviour
             Destroy(this.gameObject, 1f);
             
         }
+
+        if (spawnTag=="Player"&&other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<ZinUnitScript>().TakeDamage();
+        }
+        if (spawnTag == "Enemy" && other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<HPManagerScript>().TakeDamage();
+        }
+
     }
 }

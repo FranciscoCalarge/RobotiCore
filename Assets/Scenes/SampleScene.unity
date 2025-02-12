@@ -6778,6 +6778,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 2903724682167120469, guid: 774702321e8d672439df0358d4d6acc1, type: 3}
   playerInstance: {fileID: 0}
   fireBoneTransform: {fileID: 1307610478}
+  _deathVFXPrefab: {fileID: 0}
 --- !u!95 &1359128487
 Animator:
   serializedVersion: 7
@@ -10347,6 +10348,7 @@ GameObject:
   - component: {fileID: 1157943405}
   - component: {fileID: 1157943407}
   - component: {fileID: 1157943408}
+  - component: {fileID: 919132148031155513}
   m_Layer: 0
   m_Name: CoreProtag3
   m_TagString: Player
@@ -10354,6 +10356,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148031155513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148031155512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04418833fcba9734d8c7df435454d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919132149620654701
 GameObject:
   m_ObjectHideFlags: 0
@@ -10437,6 +10451,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 2903724682167120469, guid: 774702321e8d672439df0358d4d6acc1, type: 3}
   playerInstance: {fileID: 0}
   fireBoneTransform: {fileID: 9130093430938677504}
+  _deathVFXPrefab: {fileID: 0}
 --- !u!4 &1141775396969585886
 Transform:
   m_ObjectHideFlags: 0

@@ -22,7 +22,8 @@ public class ZinUnitScript : MonoBehaviour
     public void TakeDamage(int damage= 0)
     {
         if (damage >= 0) {
-            if(_deathVFXPrefab != null)Instantiate(_deathVFXPrefab);
+            GetComponent<Animator>().enabled = false;
+            if(_deathVFXPrefab)Instantiate(_deathVFXPrefab,transform.position,Quaternion.identity);
             Destroy(this.transform.parent.gameObject, 1f);
         }
     }

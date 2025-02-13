@@ -29,8 +29,8 @@ public class CameraPanScript : MonoBehaviour
         if (_cameraPanStep < panList.Count)
         {
             lerpTime += Time.unscaledDeltaTime /panList[_cameraPanStep].seconds;
-            transform.position = Vector3.Lerp(panList[_cameraPanStep].from.transform.position, panList[_cameraPanStep].to.transform.position, lerpTime);
-            transform.rotation = Quaternion.Lerp(panList[_cameraPanStep].from.transform.rotation, panList[_cameraPanStep].to.transform.rotation, lerpTime);
+            transform.position = Vector3.Lerp(panList[_cameraPanStep].from.transform.position, panList[_cameraPanStep].to.transform.position, lerpTime / panList[_cameraPanStep].seconds);
+            transform.rotation = Quaternion.Lerp(panList[_cameraPanStep].from.transform.rotation, panList[_cameraPanStep].to.transform.rotation, lerpTime / panList[_cameraPanStep].seconds);
             if (lerpTime > 1f*panList[_cameraPanStep].seconds) {
                 lerpTime = 0f;
                 _cameraPanStep++;

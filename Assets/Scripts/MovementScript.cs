@@ -42,7 +42,7 @@ public class MovementScript : Singleton<MovementScript>
         Vector3 lookOffset = transform.position-PlayerCamera.position;
         if(isCameraParented)
         {
-            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X")*Mathf.Abs(Input.GetAxis("Mouse X")));
+            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X")*Mathf.Abs(Input.GetAxis("Mouse X")*Time.timeScale));
         }
         else
         {

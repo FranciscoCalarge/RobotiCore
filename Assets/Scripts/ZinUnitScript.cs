@@ -14,7 +14,7 @@ public class ZinUnitScript : MonoBehaviour
         Vector3 targetDir = playerInstance.transform.position-transform.position;
 
         GameObject aux = Instantiate(BulletPrefab, fireBoneTransform.position,Quaternion.identity);
-        aux.GetComponent<Rigidbody>().linearVelocity = targetDir *5;
+        aux.GetComponent<Rigidbody>().linearVelocity = targetDir *3;
         aux.GetComponent<BulletScript>().spawnTag = transform.gameObject.tag;
 
     }
@@ -23,7 +23,7 @@ public class ZinUnitScript : MonoBehaviour
     {
         if (damage >= 0) {
             if(_deathVFXPrefab != null)Instantiate(_deathVFXPrefab);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.transform.parent.gameObject, 1f);
         }
     }
 

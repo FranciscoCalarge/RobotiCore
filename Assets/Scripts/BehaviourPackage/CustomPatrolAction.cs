@@ -38,7 +38,7 @@ public partial class CustomPatrolAction : Action
         {
             Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position - self.transform.position) * speed * Time.deltaTime;
             self.transform.position += self.transform.forward*targetDirection.magnitude;
-            self.transform.rotation =Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection),Time.deltaTime*2);
+            self.transform.rotation =Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection),Time.deltaTime*4);
         }
 
         return Status.Running;
@@ -46,14 +46,17 @@ public partial class CustomPatrolAction : Action
 
     void UpdateTarget()
     {
-        currentTargetindex += Mathf.FloorToInt(UnityEngine.Random.value * 3 - 1);
-        if (currentTargetindex < 0)
+        float rand =UnityEngine.Random.value;
+        if (rand<.5f)
         {
-            currentTargetindex=Waypoints.Value.Count-1;
-        }else if (currentTargetindex >= Waypoints.Value.Count)
+            currentTargetindex++;
+        }else
         {
-            currentTargetindex = 0;
-        };
+            currentTargetindex--;
+        }
+
+        currentTargetindex = currentTargetindex<0f?Waypoints.Value.Count-1:currentTargetindex;
+        currentTargetindex = currentTargetindex> Waypoints.Value.Count - 1 ?0:currentTargetindex;
         currentTarget = Waypoints.Value[currentTargetindex];
     }
 

@@ -26,7 +26,7 @@ public class WeaponScript : MonoBehaviour
         _movementScript._aimStanceLerp = animatorLerp;
 
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             _weaponCD -= Time.deltaTime;
             _stanceCD -= Time.deltaTime*2;

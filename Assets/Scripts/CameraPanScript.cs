@@ -8,7 +8,6 @@ public class CameraPan {
     public GameObject from;
     public GameObject to;
     public float seconds;
-
 }
 
 public class CameraPanScript : MonoBehaviour

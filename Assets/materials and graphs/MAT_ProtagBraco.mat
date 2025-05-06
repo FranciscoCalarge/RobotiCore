@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_ProtagBraco
   m_Shader: {fileID: -6465566751694194690, guid: 74b02ed3fcd2e46459f1269ebda328fe, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: 74b02ed3fcd2e46459f1269ebda328fe, type: 3}
+  m_Parent: {fileID: 2100000, guid: af063e58a54351c4a8a92a6840e2904f, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

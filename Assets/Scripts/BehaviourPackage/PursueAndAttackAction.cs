@@ -10,6 +10,7 @@ public partial class PursueAndAttackAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Zin;
     [SerializeReference] public BlackboardVariable<Animator> LocalAnimator;
+    [SerializeReference] public BlackboardVariable<float> attackDistance;
 
     GameObject self;
     Animator anim;
@@ -26,7 +27,7 @@ public partial class PursueAndAttackAction : Action
 
     protected override Status OnUpdate()
     {
-        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, MovementScript.Instance.transform.position) < 10f)
+        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, MovementScript.Instance.transform.position) < attackDistance.Value)
         {
             Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position - self.transform.position)  * Time.deltaTime;
             self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 2);

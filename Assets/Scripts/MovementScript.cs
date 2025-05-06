@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MovementScript : Singleton<MovementScript>
@@ -16,6 +17,8 @@ public class MovementScript : Singleton<MovementScript>
 
     public float _aimStanceLerp;
     public Animator _cameraAnimator;
+
+    public Material _materialTemplate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +42,7 @@ public class MovementScript : Singleton<MovementScript>
         Vector3 lookOffset = transform.position-PlayerCamera.position;
         if(isCameraParented)
         {
-            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X")*Mathf.Abs(Input.GetAxis("Mouse X")));
+            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X")*Mathf.Abs(Input.GetAxis("Mouse X")*Time.timeScale));
         }
         else
         {
@@ -71,6 +74,7 @@ public class MovementScript : Singleton<MovementScript>
         _animator.SetFloat("BlendY", smoothMovementVector.y);
         _animator.SetLayerWeight(1, _aimStanceLerp);
         _cameraAnimator.SetFloat("Blend", _aimStanceLerp);
+
     }
 
 }

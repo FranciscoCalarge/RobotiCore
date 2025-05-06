@@ -9,6 +9,7 @@ using Unity.Properties;
 public partial class ScoutAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Zin;
+    [SerializeReference] public BlackboardVariable<float> scoutDistance;
 
     protected override Status OnStart()
     {
@@ -17,7 +18,7 @@ public partial class ScoutAction : Action
 
     protected override Status OnUpdate()
     {
-        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, MovementScript.Instance.transform.position) > 10f)
+        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, MovementScript.Instance.transform.position) > scoutDistance.Value)
         {
             return Status.Running;
         }

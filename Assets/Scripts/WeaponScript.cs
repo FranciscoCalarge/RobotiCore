@@ -26,7 +26,7 @@ public class WeaponScript : MonoBehaviour
         _movementScript._aimStanceLerp = animatorLerp;
 
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             _weaponCD -= Time.deltaTime;
             _stanceCD -= Time.deltaTime*2;
@@ -36,7 +36,7 @@ public class WeaponScript : MonoBehaviour
                 _weaponCD += _projectileInterval;
                 GameObject aux =  Instantiate(BulletPrefab,_shootPosition.position , _shootPosition.localRotation);
                 aux.GetComponent<Rigidbody>().linearVelocity = transform.forward*20;
-                aux.GetComponent<BulletScript>().spawnTag = transform.tag;
+                aux.GetComponent<BulletScript>().spawnTag = "Player";
             }
         }
         else

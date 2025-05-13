@@ -6,13 +6,22 @@ public class GunScript : MonoBehaviour
     public int resolution=4;
     public float scale = 2f;
     Transform closestEnemy;
+    public MeshRenderer AimObject;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         availableEnemyCheck();
         if(closestEnemy != null)
-            closestEnemy.transform.position = transform.forward;
+        {
+            AimObject.enabled = true;
+            AimObject.transform.position = closestEnemy.position;
+        }
+        else
+        {
+            AimObject.enabled = false;
+        }
+
     }
 
     void availableEnemyCheck()
@@ -23,12 +32,16 @@ public class GunScript : MonoBehaviour
             for (int j = 0; j < resolution; j++)
             {
                 RaycastHit hitInfo = new RaycastHit();
-                Ray ray = new Ray(transform.position, childCanvas.position + transform.up + transform.right * scale * (i - resolution / 2) + transform.forward * scale * (j - resolution / 2));
-/*                Physics.Raycast();
-*/                if (hitInfo.rigidbody!=null)
+                Ray ray = new Ray(transform.position, getRayTargetPos(i, j));
+                Physics.Raycast(ray, out hitInfo);
+                if (hitInfo.rigidbody!=null)
                 {
+                    if (!hitInfo.collider.CompareTag("Enemy"))
+                    {
+                        continue;
+                    }
                     auxEnemy = hitInfo.transform;
-                    if(auxEnemy!=null)
+                    if(auxEnemy!=null&& auxEnemy.CompareTag("Enemy"))
                     {
                         if (closestEnemy != null)
                         {
@@ -49,13 +62,12 @@ public class GunScript : MonoBehaviour
 
     void UpdateEnemy(Transform enemyIn)
     {
-        Debug.Log(enemyIn.name.ToString());
-        if (enemyIn==null)
+        if (enemyIn == null)
         {
             closestEnemy = null;
             return;
         }
-        if ( enemyIn == closestEnemy)
+        if (enemyIn == closestEnemy)
         {
             return;
         }
@@ -71,8 +83,13 @@ public class GunScript : MonoBehaviour
         {
             for (int j = 0; j < resolution; j++)
             {
-                Gizmos.DrawLine(transform.position,childCanvas.position+transform.up+transform.right*scale*(i-resolution/2)+transform.forward*scale*(j - resolution / 2));
+                Gizmos.DrawLine(transform.position,getRayTargetPos(i,j));
             }
         }
+    }
+
+    Vector3 getRayTargetPos(int a, int b)
+    {
+        return childCanvas.position + transform.up + transform.right * scale * (a - resolution / 2) + transform.forward * scale * (b - resolution / 2);
     }
 }

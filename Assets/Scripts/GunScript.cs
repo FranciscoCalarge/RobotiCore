@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour
@@ -5,13 +6,13 @@ public class GunScript : MonoBehaviour
     public Transform childCanvas;
     public int resolution=4;
     public float scale = 2f;
-    Transform closestEnemy;
+    public Transform closestEnemy;
     public MeshRenderer AimObject;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        availableEnemyCheck();
+        GridCast();
         if(closestEnemy != null)
         {
             AimObject.enabled = true;
@@ -21,62 +22,52 @@ public class GunScript : MonoBehaviour
         {
             AimObject.enabled = false;
         }
-
     }
 
-    void availableEnemyCheck()
+    void GridCast()
     {
-        Transform auxEnemy = null;
+        //começando o gridcast precisamos saber qual será o trasform mirado neste tick
+        Transform gridCastTransform = null;
         for (int i = 0; i < resolution; i++)
         {
             for (int j = 0; j < resolution; j++)
             {
                 RaycastHit hitInfo = new RaycastHit();
-                Ray ray = new Ray(transform.position, getRayTargetPosition(i, j));
-                Physics.Raycast(ray, out hitInfo);
+                Physics.Linecast(transform.position, getRayTargetPosition(i,j), out hitInfo);
                 if (hitInfo.rigidbody != null)
                 {
                     if (!hitInfo.collider.CompareTag("Enemy"))
                     {
                         continue;
                     }
-                    auxEnemy = hitInfo.transform;
-                    if (auxEnemy.CompareTag("Enemy"))
+                    if(gridCastTransform == null)
                     {
-                        if (closestEnemy != null)
-                        {
-                            if (Vector3.Distance(transform.position, auxEnemy.position) < Vector3.Distance(transform.position, closestEnemy.position))
-                            {
-                                UpdateEnemy(auxEnemy);
-                            }
-                        }
-                        else
-                        {
-                            UpdateEnemy(auxEnemy);
-                        }
+                        gridCastTransform = hitInfo.collider.transform;
+                    }
+                    //o transform mirado neste unico raycast está mais perto que o transform deste gridcast?
+                    if (Vector3.Distance(transform.position, gridCastTransform.position) > Vector3.Distance(transform.position, hitInfo.transform.position))
+                    {
+                        gridCastTransform = hitInfo.transform;
                     }
                 }
             }
         }
 
+        if (gridCastTransform == null) {
+            closestEnemy = null;
+        }else if (closestEnemy != gridCastTransform)
+        {
+            if (closestEnemy == null)
+            {
+                closestEnemy = gridCastTransform;
+            }else if (Vector3.Distance(transform.position, gridCastTransform.position) < Vector3.Distance(transform.position, closestEnemy.position))
+            {
+                closestEnemy = gridCastTransform;
+            }
+        }
+
     }
 
-    void UpdateEnemy(Transform enemyIn)
-    {
-        if (enemyIn == null)
-        {
-            closestEnemy = null;
-            return;
-        }
-        if (enemyIn == closestEnemy)
-        {
-            return;
-        }
-        else
-        {
-            closestEnemy = enemyIn;
-        }
-    }
 
     private void OnDrawGizmosSelected()
     {
@@ -91,6 +82,6 @@ public class GunScript : MonoBehaviour
 
     Vector3 getRayTargetPosition(int a, int b)
     {
-        return childCanvas.position + transform.up + transform.right * scale * (a - resolution / 2) + transform.forward * scale * (b - resolution / 2);
+        return childCanvas.position  + transform.right * scale * (a - resolution / 2) + transform.forward * scale * (b - resolution / 2);
     }
 }

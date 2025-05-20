@@ -1075,6 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 5
+  gravitySpeed: 10
 --- !u!1 &884345288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,8 +2218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childCanvas: {fileID: 884345289}
-  resolution: 7
-  scale: 2.61
+  resolution: 14
+  scale: 1.25
+  closestEnemy: {fileID: 0}
   AimObject: {fileID: 568753326}
 --- !u!1 &1798735942
 GameObject:

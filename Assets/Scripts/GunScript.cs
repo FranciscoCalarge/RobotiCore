@@ -32,16 +32,16 @@ public class GunScript : MonoBehaviour
             for (int j = 0; j < resolution; j++)
             {
                 RaycastHit hitInfo = new RaycastHit();
-                Ray ray = new Ray(transform.position, getRayTargetPos(i, j));
+                Ray ray = new Ray(transform.position, getRayTargetPosition(i, j));
                 Physics.Raycast(ray, out hitInfo);
-                if (hitInfo.rigidbody!=null)
+                if (hitInfo.rigidbody != null)
                 {
                     if (!hitInfo.collider.CompareTag("Enemy"))
                     {
                         continue;
                     }
                     auxEnemy = hitInfo.transform;
-                    if(auxEnemy!=null&& auxEnemy.CompareTag("Enemy"))
+                    if (auxEnemy.CompareTag("Enemy"))
                     {
                         if (closestEnemy != null)
                         {
@@ -58,6 +58,7 @@ public class GunScript : MonoBehaviour
                 }
             }
         }
+
     }
 
     void UpdateEnemy(Transform enemyIn)
@@ -83,12 +84,12 @@ public class GunScript : MonoBehaviour
         {
             for (int j = 0; j < resolution; j++)
             {
-                Gizmos.DrawLine(transform.position,getRayTargetPos(i,j));
+                Gizmos.DrawLine(transform.position,getRayTargetPosition(i,j));
             }
         }
     }
 
-    Vector3 getRayTargetPos(int a, int b)
+    Vector3 getRayTargetPosition(int a, int b)
     {
         return childCanvas.position + transform.up + transform.right * scale * (a - resolution / 2) + transform.forward * scale * (b - resolution / 2);
     }

@@ -22,12 +22,22 @@ public class GunScript : MonoBehaviour
         {
             AimObject.enabled = false;
         }
+
+        if(closestEnemy != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("IMplementa o tiro o filadaputa");
+/*                FireEvent();
+*/            }
+        }
     }
 
     void GridCast()
     {
         //começando o gridcast precisamos saber qual será o trasform mirado neste tick
         Transform gridCastTransform = null;
+        bool maintainClosest = false;
         for (int i = 0; i < resolution; i++)
         {
             for (int j = 0; j < resolution; j++)
@@ -49,22 +59,28 @@ public class GunScript : MonoBehaviour
                     {
                         gridCastTransform = hitInfo.transform;
                     }
+                    if(gridCastTransform == closestEnemy)
+                    {
+                        maintainClosest = true;
+                    }
                 }
             }
         }
 
-        if (gridCastTransform == null) {
+        if (gridCastTransform == null)
+        {
             closestEnemy = null;
         }else if (closestEnemy != gridCastTransform)
         {
             if (closestEnemy == null)
             {
                 closestEnemy = gridCastTransform;
-            }else if (Vector3.Distance(transform.position, gridCastTransform.position) < Vector3.Distance(transform.position, closestEnemy.position))
+            }else if (!maintainClosest&& Vector3.Distance(transform.position, gridCastTransform.position) < Vector3.Distance(transform.position, closestEnemy.position))
             {
                 closestEnemy = gridCastTransform;
             }
         }
+
 
     }
 

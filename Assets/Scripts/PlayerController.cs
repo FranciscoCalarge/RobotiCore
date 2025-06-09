@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
             transform.position+=transform.forward*moveVector.y*Time.deltaTime * movespeed;
         }
 
-/*        if (Input.Ac)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("espaco");
             verticalVelocity += 5f;
             transform.position += Vector3.up;
         }
-*/
+
+
         if (transform.position.y < initialPos.y)
         {
             verticalVelocity = 0f;

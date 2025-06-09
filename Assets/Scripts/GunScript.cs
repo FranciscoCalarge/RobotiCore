@@ -8,6 +8,9 @@ public class GunScript : MonoBehaviour
     public float scale = 2f;
     public Transform closestEnemy;
     public MeshRenderer AimObject;
+    [SerializeField] GameObject BulletPrefab;
+    public LayerMask EnemyLayer;
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -27,9 +30,15 @@ public class GunScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("IMplementa o tiro o filadaputa");
-/*                FireEvent();
-*/            }
+                Debug.Log("tiro aontece");
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
+                    auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                    auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+
+                }
+            }
         }
     }
 
@@ -43,7 +52,7 @@ public class GunScript : MonoBehaviour
             for (int j = 0; j < resolution; j++)
             {
                 RaycastHit hitInfo = new RaycastHit();
-                Physics.Linecast(transform.position, getRayTargetPosition(i,j), out hitInfo);
+                Physics.Linecast(transform.position, getRayTargetPosition(i, j), out hitInfo, EnemyLayer);
                 if (hitInfo.rigidbody != null)
                 {
                     if (!hitInfo.collider.CompareTag("Enemy"))

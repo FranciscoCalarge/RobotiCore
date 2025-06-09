@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 715977095}
   - component: {fileID: 715977094}
   - component: {fileID: 715977093}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 853123532}
   m_Layer: 0
   m_Name: FinalProtag
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 1154949343}
   - component: {fileID: 1154949342}
   - component: {fileID: 1154949341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1318,7 +1318,7 @@ Transform:
   m_GameObject: {fileID: 1154949340}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 4.53, z: 18.57}
+  m_LocalPosition: {x: 1.8, y: 1.01, z: 18.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1861,7 +1861,7 @@ GameObject:
   - component: {fileID: 1770942322}
   - component: {fileID: 1770942321}
   - component: {fileID: 1770942326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2166,10 +2166,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.14
+  m_Height: 1.52
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: -0.85, z: -0.00000008940697}
 --- !u!23 &1780192110
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2240,6 +2240,10 @@ MonoBehaviour:
   scale: 1.25
   closestEnemy: {fileID: 0}
   AimObject: {fileID: 568753326}
+  BulletPrefab: {fileID: 2903724682167120469, guid: a48bfc7b58be2834ca0a2da711cd50c9, type: 3}
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1798735942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2310,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 95
+    m_Bits: 223
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

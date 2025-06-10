@@ -27,7 +27,7 @@ public class ZinUnitScript : MonoBehaviour
             
             }
             if(_deathVFXPrefab)Instantiate(_deathVFXPrefab,transform.position,Quaternion.identity);
-            Destroy(this.transform.parent.gameObject, 1f);
+            Destroy(this.transform.gameObject, 1f);
         }
     }
 

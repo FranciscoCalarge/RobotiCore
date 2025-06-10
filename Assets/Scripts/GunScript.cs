@@ -35,6 +35,7 @@ public class GunScript : MonoBehaviour
                 {
                     GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
                     auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                    auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
                     auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
 
                 }

@@ -35,8 +35,8 @@ public class WeaponScript : MonoBehaviour
             {
                 _weaponCD += _projectileInterval;
                 GameObject aux =  Instantiate(BulletPrefab,_shootPosition.position , _shootPosition.localRotation);
-                aux.GetComponent<Rigidbody>().linearVelocity = transform.forward*20;
                 aux.GetComponent<BulletScript>().spawnTag = "Player";
+                aux.GetComponent<BulletScript>().bulletVelocity = 20;
             }
         }
         else

@@ -8,6 +8,9 @@ public class GunScript : MonoBehaviour
     public float scale = 2f;
     public Transform closestEnemy;
     public MeshRenderer AimObject;
+    [SerializeField] GameObject BulletPrefab;
+    public LayerMask EnemyLayer;
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -22,18 +25,35 @@ public class GunScript : MonoBehaviour
         {
             AimObject.enabled = false;
         }
+
+        if(closestEnemy != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("tiro aontece");
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
+                    auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                    auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
+                    auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+
+                }
+            }
+        }
     }
 
     void GridCast()
     {
         //começando o gridcast precisamos saber qual será o trasform mirado neste tick
         Transform gridCastTransform = null;
+        bool maintainClosest = false;
         for (int i = 0; i < resolution; i++)
         {
             for (int j = 0; j < resolution; j++)
             {
                 RaycastHit hitInfo = new RaycastHit();
-                Physics.Linecast(transform.position, getRayTargetPosition(i,j), out hitInfo);
+                Physics.Linecast(transform.position, getRayTargetPosition(i, j), out hitInfo, EnemyLayer);
                 if (hitInfo.rigidbody != null)
                 {
                     if (!hitInfo.collider.CompareTag("Enemy"))
@@ -49,22 +69,28 @@ public class GunScript : MonoBehaviour
                     {
                         gridCastTransform = hitInfo.transform;
                     }
+                    if(gridCastTransform == closestEnemy)
+                    {
+                        maintainClosest = true;
+                    }
                 }
             }
         }
 
-        if (gridCastTransform == null) {
+        if (gridCastTransform == null)
+        {
             closestEnemy = null;
         }else if (closestEnemy != gridCastTransform)
         {
             if (closestEnemy == null)
             {
                 closestEnemy = gridCastTransform;
-            }else if (Vector3.Distance(transform.position, gridCastTransform.position) < Vector3.Distance(transform.position, closestEnemy.position))
+            }else if (!maintainClosest&& Vector3.Distance(transform.position, gridCastTransform.position) < Vector3.Distance(transform.position, closestEnemy.position))
             {
                 closestEnemy = gridCastTransform;
             }
         }
+
 
     }
 

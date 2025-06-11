@@ -9,7 +9,10 @@ public class ZinUnitScript : MonoBehaviour
     public GameObject _deathVFXPrefab;
     public void FireEvent()
     {
-        playerInstance = MovementScript.Instance.gameObject;
+        if (playerInstance == null)
+        {
+            Debug.LogWarning("player instance is null");
+        }
         Vector3 targetDir = playerInstance.transform.position-transform.position;
 
         GameObject aux = Instantiate(BulletPrefab, fireBoneTransform.position,Quaternion.identity);

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody _rb;
     public Animator _animator;
 
+    float verticalLerp=0f;
+
 
 /*    float verticalVelocity;
 */
@@ -21,9 +23,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        Vector2 moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Debug.Log(_rb.linearVelocity.sqrMagnitude);
-        if (Mathf.Pow(_rb.linearVelocity.magnitude,2 ) < .1f)
+        Vector2 moveVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (Mathf.Max(Mathf.Abs(moveVector.x),Mathf.Abs(moveVector.y),Mathf.Abs( _rb.linearVelocity.y))<.1f)
         {
             _animator.SetBool("isMoving", false);
         }
@@ -41,11 +42,12 @@ public class PlayerController : MonoBehaviour
             transform.position+=transform.forward*moveVector.y*Time.deltaTime * movespeed;
         }
 
-        _animator.SetFloat("onAir", Mathf.Clamp01(Mathf.Abs(_rb.linearVelocity.y/2)));
+        verticalLerp = Mathf.Lerp(verticalLerp,Mathf.Abs(_rb.linearVelocity.y), .5f);
+        _animator.SetFloat("onAir", Mathf.Pow(verticalLerp,5f));
 
         if (Input.GetKey(KeyCode.Space))
         {
-            _rb.AddForce(transform.up*15,ForceMode.Acceleration);
+            _rb.AddForce(transform.up*1000*Time.deltaTime,ForceMode.Acceleration);
         }
 
 /*        if (transform.position.y < initialPos.y)

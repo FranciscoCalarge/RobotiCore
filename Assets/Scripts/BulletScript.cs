@@ -20,7 +20,7 @@ public class BulletScript : MonoBehaviour
         }
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo,.5f))
+        if (Physics.SphereCast(transform.position,.5f, transform.forward, out hitInfo,.5f))
         {
             if (hitInfo.collider.CompareTag(targetTag)) {
                 hitInfo.collider.gameObject.GetComponentInParent<ZinUnitScript>().TakeDamage();

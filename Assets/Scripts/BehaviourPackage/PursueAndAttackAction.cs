@@ -32,7 +32,10 @@ public partial class PursueAndAttackAction : Action
         {
             Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position - self.transform.position)  * Time.deltaTime;
             self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 2);
-            anim.SetTrigger("Fire");
+            if (anim != null) {
+                anim.SetTrigger("Fire");
+
+            }
 
 
             return Status.Running;

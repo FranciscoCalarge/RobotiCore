@@ -9,11 +9,9 @@ public abstract class Singleton<T> : MonoBehaviour
         {
             if(instance == null){
                 instance=FindAnyObjectByType<Singleton<T>>();
-                if (instance == null)
-                {
-                    instance=new GameObject().AddComponent<Singleton<T>>();
-                    instance.name = typeof(Singleton<T>).Name;
-                }
+            }
+            if (instance == null) { 
+                Debug.Log("instance nao encontrada do tipo:" +typeof(Singleton<T>));
             }
             return instance;
         }

@@ -9,6 +9,7 @@ using Unity.Properties;
 public partial class PursueAndAttackAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Zin;
+    [SerializeReference] public BlackboardVariable<GameObject> Player;
     [SerializeReference] public BlackboardVariable<Animator> LocalAnimator;
     [SerializeReference] public BlackboardVariable<float> attackDistance;
 
@@ -20,14 +21,14 @@ public partial class PursueAndAttackAction : Action
     {
         self = Zin.Value;
         anim = LocalAnimator.Value;
-        currentTarget = MovementScript.Instance.gameObject;
+        currentTarget = Player.Value.gameObject;
 
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, MovementScript.Instance.transform.position) < attackDistance.Value)
+        if (Zin != null && Vector3.Distance(Zin.Value.transform.position, Player.Value.transform.position) < attackDistance.Value)
         {
             Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position - self.transform.position)  * Time.deltaTime;
             self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 2);

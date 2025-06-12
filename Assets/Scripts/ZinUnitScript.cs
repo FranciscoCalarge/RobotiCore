@@ -15,9 +15,10 @@ public class ZinUnitScript : MonoBehaviour
         }
         Vector3 targetDir = playerInstance.transform.position-transform.position;
 
-        GameObject aux = Instantiate(BulletPrefab, fireBoneTransform.position,Quaternion.identity);
-        aux.GetComponent<Rigidbody>().linearVelocity = targetDir *3;
-        aux.GetComponent<BulletScript>().spawnTag = transform.gameObject.tag;
+        GameObject aux = Instantiate(BulletPrefab, fireBoneTransform.position + fireBoneTransform.up, Quaternion.LookRotation(targetDir));
+        aux.GetComponent<BulletScript>().spawnTag = "Enemy";
+        aux.GetComponent<BulletScript>().targetTag = "Player";
+        aux.GetComponent<BulletScript>().bulletVelocity = .5f;
 
     }
 

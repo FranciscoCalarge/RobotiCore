@@ -11,6 +11,9 @@ public class GunScript : MonoBehaviour
     [SerializeField] GameObject BulletPrefab;
     public LayerMask EnemyLayer;
 
+    public bool showGizmos;
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -30,15 +33,11 @@ public class GunScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("tiro aontece");
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
-                    auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
-                    auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
-                    auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+                GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
+                auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
+                auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
 
-                }
             }
         }
     }
@@ -97,11 +96,14 @@ public class GunScript : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        for (int i = 0; i < resolution; i++)
+        if (showGizmos)
         {
-            for (int j = 0; j < resolution; j++)
+            for (int i = 0; i < resolution; i++)
             {
-                Gizmos.DrawLine(transform.position,getRayTargetPosition(i,j));
+                for (int j = 0; j < resolution; j++)
+                {
+                    Gizmos.DrawLine(transform.position, getRayTargetPosition(i, j));
+                }
             }
         }
     }

@@ -26,6 +26,10 @@ public class BulletScript : MonoBehaviour
                 hitInfo.collider.gameObject.GetComponentInParent<ZinUnitScript>().TakeDamage();
                 Collide();
             }
+            if (hitInfo.collider.CompareTag("Ground"))
+            {
+                Collide();
+            }
         }
     }
 
@@ -35,5 +39,10 @@ public class BulletScript : MonoBehaviour
         rb.isKinematic = true;
         Destroy(this.gameObject);
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position+transform.forward);
     }
 }

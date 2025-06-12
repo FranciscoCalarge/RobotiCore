@@ -13,7 +13,7 @@ public class ZinUnitScript : MonoBehaviour
         {
             Debug.LogWarning("player instance is null");
         }
-        Vector3 targetDir = playerInstance.transform.position-transform.position;
+        Vector3 targetDir = playerInstance.transform.position-transform.position+Vector3.down*2;
 
         GameObject aux = Instantiate(BulletPrefab, fireBoneTransform.position + fireBoneTransform.up, Quaternion.LookRotation(targetDir));
         aux.GetComponent<BulletScript>().spawnTag = "Enemy";

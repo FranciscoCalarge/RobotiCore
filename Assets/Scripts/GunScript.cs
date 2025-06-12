@@ -12,8 +12,9 @@ public class GunScript : MonoBehaviour
     public LayerMask EnemyLayer;
 
     public bool showGizmos;
+    public Animator playerAnimator;
 
-
+    private float aimLerp=0;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -31,15 +32,25 @@ public class GunScript : MonoBehaviour
 
         if(closestEnemy != null)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                GameObject auxBullet = Instantiate(BulletPrefab, transform.position+transform.up, Quaternion.LookRotation(closestEnemy.transform.position-transform.position));
-                auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
-                auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
-                auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+                aimLerp += Time.deltaTime;
 
+                if (aimLerp > 1f) {
+                    GameObject auxBullet = Instantiate(BulletPrefab, transform.position + transform.up, Quaternion.LookRotation(closestEnemy.transform.position - transform.position));
+                    auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                    auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
+                    auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+                    aimLerp = .2f;
+                }
+            }
+            else
+            {
+                aimLerp -= Time.deltaTime;
             }
         }
+        aimLerp=Mathf.Clamp01(aimLerp);
+        playerAnimator.SetLayerWeight(1, aimLerp);
     }
 
     void GridCast()
@@ -61,12 +72,12 @@ public class GunScript : MonoBehaviour
                     }
                     if(gridCastTransform == null)
                     {
-                        gridCastTransform = hitInfo.collider.transform;
+                        gridCastTransform = hitInfo.collider.transform.GetChild(0);
                     }
                     //o transform mirado neste unico raycast está mais perto que o transform deste gridcast?
                     if (Vector3.Distance(transform.position, gridCastTransform.position) > Vector3.Distance(transform.position, hitInfo.transform.position))
                     {
-                        gridCastTransform = hitInfo.transform;
+                        gridCastTransform = hitInfo.transform.GetChild(0);
                     }
                     if(gridCastTransform == closestEnemy)
                     {

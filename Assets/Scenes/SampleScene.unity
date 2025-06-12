@@ -14520,13 +14520,13 @@ MonoBehaviour:
   panList:
   - from: {fileID: 1178514703}
     to: {fileID: 2090691666}
-    seconds: 3
+    seconds: 1
   - from: {fileID: 1077244493}
     to: {fileID: 1771954710}
-    seconds: 3
+    seconds: 1
   - from: {fileID: 422281974}
     to: {fileID: 88894496}
-    seconds: 3
+    seconds: 1
   gameObjects:
   - {fileID: 1420096279}
 --- !u!1 &1130538815

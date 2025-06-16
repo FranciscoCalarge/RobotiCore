@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class HPManagerScript : MonoBehaviour
 {
-    float hp = 3;
+    public float hp = 5f;
     public Material characterMaterial;
+    float initialHP;
 
     private void Start()
     {
+        initialHP = hp;
         UpdateMaterial();
     }
 
@@ -23,7 +25,13 @@ public class HPManagerScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-        Debug.Log(hp/3);
-        characterMaterial.SetFloat("_dmgAmt", hp/3f);
+        if (hp == initialHP) {
+            characterMaterial.SetFloat("_dmgAmt",1f);
+        }
+        else
+        {
+            characterMaterial.SetFloat("_dmgAmt", hp/initialHP);
+        }
+        
     }
 }

@@ -47,7 +47,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            _rb.AddForce(transform.up*1000*Time.deltaTime,ForceMode.Acceleration);
+            
+            _rb.AddForce(transform.up*2500*Time.deltaTime,ForceMode.Acceleration);
+            Debug.Log("space");
         }
 
 /*        if (transform.position.y < initialPos.y)

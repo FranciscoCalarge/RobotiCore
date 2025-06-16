@@ -23,7 +23,16 @@ public class BulletScript : MonoBehaviour
         if (Physics.SphereCast(transform.position,.5f, transform.forward, out hitInfo,.5f))
         {
             if (hitInfo.collider.CompareTag(targetTag)) {
-                hitInfo.collider.gameObject.GetComponentInParent<ZinUnitScript>().TakeDamage();
+                if (targetTag == "Enemy")
+                {
+                    hitInfo.collider.gameObject.GetComponentInParent<ZinUnitScript>().TakeDamage();
+                }
+                if (targetTag == "Player")
+                {
+                    Debug.Log(hitInfo.collider.gameObject);
+                    HPManagerScript hpManager = hitInfo.collider.GetComponent<HPManagerScript>();
+                    hpManager.TakeDamage();
+                }
                 Collide();
             }
             if (hitInfo.collider.CompareTag("Ground"))

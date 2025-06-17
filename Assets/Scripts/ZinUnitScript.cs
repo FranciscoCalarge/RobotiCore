@@ -6,6 +6,8 @@ public class ZinUnitScript : MonoBehaviour
     public GameObject playerInstance;
     public Transform fireBoneTransform;
 
+    public Collider localCollider;
+
     public GameObject _deathVFXPrefab;
     public void FireEvent()
     {
@@ -28,9 +30,10 @@ public class ZinUnitScript : MonoBehaviour
             Animator auxAnimator = GetComponent<Animator>();
             if (auxAnimator != null) { 
                 GetComponent<Animator>().enabled = false;
-            
+                localCollider.enabled = false;
             }
             if(_deathVFXPrefab)Instantiate(_deathVFXPrefab,transform.position,Quaternion.identity);
+            
             Destroy(this.transform.gameObject, 1f);
         }
     }

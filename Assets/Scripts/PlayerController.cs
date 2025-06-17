@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector3 initialPos;
     public float movespeed = 5f;
-    public float gravitySpeed = 1f;
     public Rigidbody _rb;
     public Animator _animator;
 
@@ -16,7 +14,6 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        initialPos = transform.position;
     }
 
     // Update is called once per frame
@@ -53,7 +50,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             
-            _rb.AddForce(transform.up*2500*Time.deltaTime,ForceMode.Acceleration);
+            _rb.AddForce(transform.up*1000*Time.deltaTime,ForceMode.Acceleration);
             Debug.Log("space");
         }
 

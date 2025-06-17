@@ -7193,7 +7193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 5
-  gravitySpeed: 10
   _rb: {fileID: 9174361126511356547}
   _animator: {fileID: 6180610209282524522}
 --- !u!23 &2721302535864807054

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         
         Vector2 moveVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (Mathf.Max(Mathf.Abs(moveVector.x),Mathf.Abs(moveVector.y),Mathf.Abs( _rb.linearVelocity.y))<.1f)
+        if (Mathf.Max(Mathf.Abs(moveVector.x),Mathf.Abs(moveVector.y),Mathf.Abs( _rb.linearVelocity.y),Mathf.Abs(Input.GetAxis("Strafe")))< .1f)
         {
             _animator.SetBool("isMoving", false);
         }
@@ -38,8 +38,13 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(transform.up,moveVector.x*Time.deltaTime*30*movespeed);
         }
 
-        if (Mathf.Abs(moveVector.y) > 0) { 
-            transform.position+=transform.forward*moveVector.y*Time.deltaTime * movespeed;
+        if (Mathf.Abs(moveVector.y) > 0)
+        {
+            transform.position += transform.forward * moveVector.y * Time.deltaTime * movespeed;
+        }
+        if (Mathf.Abs(Input.GetAxis("Strafe")) > 0)
+        {
+            transform.position += transform.right * Input.GetAxis("Strafe") * Time.deltaTime * movespeed/2;
         }
 
         verticalLerp = Mathf.Lerp(verticalLerp,Mathf.Abs(_rb.linearVelocity.y), .5f);

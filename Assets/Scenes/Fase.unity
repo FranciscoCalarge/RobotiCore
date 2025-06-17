@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 240148570}
   m_Layer: 0
   m_Name: f
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 476394979}
   - component: {fileID: 476394978}
   - component: {fileID: 476394977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3696,7 +3696,7 @@ GameObject:
   - component: {fileID: 1305725925}
   - component: {fileID: 1305725924}
   - component: {fileID: 1305725923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4820,7 +4820,7 @@ GameObject:
   - component: {fileID: 1498526179}
   m_Layer: 0
   m_Name: SceneryProps
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8048,7 +8048,7 @@ GameObject:
   - component: {fileID: 2721302535864807054}
   - component: {fileID: 2932120882535877706}
   - component: {fileID: 4523019533362450268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RoboticoreLevel
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8079,7 +8079,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!1 &4533050888801119616
@@ -8977,7 +8977,7 @@ GameObject:
   - component: {fileID: 8334441519991100499}
   m_Layer: 0
   m_Name: Box (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1

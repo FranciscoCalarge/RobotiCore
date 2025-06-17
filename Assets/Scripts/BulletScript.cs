@@ -10,12 +10,12 @@ public class BulletScript : MonoBehaviour
     bool collision=false;
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Mathf.Abs(bulletVelocity) > 0)
         {
             if (!collision) { 
-                transform.position += transform.forward * bulletVelocity;
+                transform.position += transform.forward * bulletVelocity*Time.deltaTime*40;
             }
         }
 
@@ -29,10 +29,10 @@ public class BulletScript : MonoBehaviour
                 }
                 if (targetTag == "Player")
                 {
-                    Debug.Log(hitInfo.collider.gameObject);
                     HPManagerScript hpManager = hitInfo.collider.GetComponent<HPManagerScript>();
                     hpManager.TakeDamage();
                 }
+                Debug.Log(hitInfo.collider.gameObject);
                 Collide();
             }
             if (hitInfo.collider.CompareTag("Ground"))

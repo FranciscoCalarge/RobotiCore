@@ -34,6 +34,7 @@ public class GunScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                aimLerp=aimLerp<=0?1f:aimLerp;
                 aimLerp += Time.deltaTime;
 
                 if (aimLerp > 1f) {
@@ -66,22 +67,21 @@ public class GunScript : MonoBehaviour
                 Physics.Linecast(transform.position, getRayTargetPosition(i, j), out hitInfo, EnemyLayer);
                 if (hitInfo.rigidbody != null)
                 {
-                    if (!hitInfo.collider.CompareTag("Enemy"))
+                    if (hitInfo.collider.CompareTag("Enemy")||hitInfo.collider.CompareTag("Tank"))
                     {
-                        continue;
-                    }
-                    if(gridCastTransform == null)
-                    {
-                        gridCastTransform = hitInfo.collider.transform.GetChild(0);
-                    }
-                    //o transform mirado neste unico raycast está mais perto que o transform deste gridcast?
-                    if (Vector3.Distance(transform.position, gridCastTransform.position) > Vector3.Distance(transform.position, hitInfo.transform.position))
-                    {
-                        gridCastTransform = hitInfo.transform.GetChild(0);
-                    }
-                    if(gridCastTransform == closestEnemy)
-                    {
-                        maintainClosest = true;
+                        if (gridCastTransform == null)
+                        {
+                            gridCastTransform = hitInfo.collider.transform.GetChild(0);
+                        }
+                        //o transform mirado neste unico raycast está mais perto que o transform deste gridcast?
+                        if (Vector3.Distance(transform.position, gridCastTransform.position) > Vector3.Distance(transform.position, hitInfo.transform.position))
+                        {
+                            gridCastTransform = hitInfo.transform.GetChild(0);
+                        }
+                        if (gridCastTransform == closestEnemy)
+                        {
+                            maintainClosest = true;
+                        }
                     }
                 }
             }

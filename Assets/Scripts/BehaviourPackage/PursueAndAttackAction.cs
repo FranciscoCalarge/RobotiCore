@@ -28,7 +28,10 @@ public partial class PursueAndAttackAction : Action
         self = Zin.Value;
         anim = LocalAnimator.Value;
         currentTarget = Player.Value.gameObject;
-        localEnemyScript = LocalZinScript.Value;
+        if (LocalZinScript != null)
+        {
+            localEnemyScript = LocalZinScript.Value;
+        }
 
         return Status.Running;
     }

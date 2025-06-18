@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Mathf.Abs(Input.GetAxis("Strafe")) > 0)
         {
-            transform.position += transform.right * Input.GetAxis("Strafe") * Time.deltaTime * movespeed/2;
+            transform.position += transform.right * Input.GetAxis("Strafe") * Time.deltaTime * movespeed;
         }
 
         verticalLerp = Mathf.Lerp(verticalLerp,Mathf.Abs(_rb.linearVelocity.y), .5f);

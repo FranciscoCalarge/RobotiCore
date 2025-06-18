@@ -762,11 +762,20 @@ MonoBehaviour:
   - rid: 7083564688357720293
   - rid: 7083564688357720552
   - rid: 7083564705175044331
+  - rid: 6518780568784076991
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
+    - rid: 6518780568784076991
+      type: {class: 'BlackboardVariable`1[[ZinUnitScript, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2021337620087647062
+          m_Value1: 10631668688778681300
+        Name: localZinScript
+        m_Value: {fileID: 653450624}
     - rid: 7083564688357720292
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1113,11 +1122,20 @@ MonoBehaviour:
   - rid: 7083564688357720293
   - rid: 7083564688357720552
   - rid: 7083564705175044331
+  - rid: 6518780568784076992
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
+    - rid: 6518780568784076992
+      type: {class: 'BlackboardVariable`1[[ZinUnitScript, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2021337620087647062
+          m_Value1: 10631668688778681300
+        Name: localZinScript
+        m_Value: {fileID: 1284500951}
     - rid: 7083564688357720292
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -7222,7 +7240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99395dca36996f4e935c41d085c490a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 5
+  movespeed: 4
   _rb: {fileID: 9174361126511356547}
   _animator: {fileID: 6180610209282524522}
 --- !u!23 &2721302535864807054

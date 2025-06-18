@@ -14,6 +14,7 @@ public partial class PursueAndAttackAction : Action
     [SerializeReference] public BlackboardVariable<ZinUnitScript> LocalZinScript;
     [SerializeReference] public BlackboardVariable<float> attackDistance;
     [SerializeReference] public BlackboardVariable<float>defaltShotCD;
+    [SerializeReference] public BlackboardVariable<bool>flipForward;
 
     GameObject self;
     Animator anim;
@@ -37,8 +38,9 @@ public partial class PursueAndAttackAction : Action
         shotCooldown -= Time.deltaTime;
         if (Zin != null && Vector3.Distance(Zin.Value.transform.position, Player.Value.transform.position) < attackDistance.Value)
         {
-            Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position - self.transform.position+Vector3.down*2)  * Time.deltaTime;
-            self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 2);
+            float targetOffset = flipForward.Value?-1:1;
+            Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position-self.transform.position+ Vector3.down * 2*targetOffset)  * Time.deltaTime;
+            self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection*targetOffset), Time.deltaTime * 2);
             if (anim != null) {
                 anim.SetTrigger("Fire");
             }

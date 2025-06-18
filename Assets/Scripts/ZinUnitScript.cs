@@ -1,3 +1,4 @@
+using Unity.Behavior;
 using UnityEngine;
 
 public class ZinUnitScript : MonoBehaviour
@@ -9,6 +10,7 @@ public class ZinUnitScript : MonoBehaviour
     public Collider localCollider;
 
     public GameObject _deathVFXPrefab;
+    public BehaviorGraphAgent localGraph;
     public void FireEvent()
     {
         if (playerInstance == null)
@@ -33,7 +35,7 @@ public class ZinUnitScript : MonoBehaviour
                 localCollider.enabled = false;
             }
             if(_deathVFXPrefab)Instantiate(_deathVFXPrefab,transform.position,Quaternion.identity);
-            
+            if (localGraph != null) { localGraph.enabled = false; }
             Destroy(this.transform.gameObject, 1f);
         }
     }

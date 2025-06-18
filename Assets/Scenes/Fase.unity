@@ -9708,6 +9708,7 @@ MonoBehaviour:
   fireBoneTransform: {fileID: 1828947589}
   localCollider: {fileID: 888331001}
   _deathVFXPrefab: {fileID: 3540600277522596486, guid: 26d2fd2eca455fb44ab78411674bcf69, type: 3}
+  localGraph: {fileID: 0}
 --- !u!95 &653450625
 Animator:
   serializedVersion: 7
@@ -18917,6 +18918,7 @@ MonoBehaviour:
   fireBoneTransform: {fileID: 1369490910}
   localCollider: {fileID: 2132536829}
   _deathVFXPrefab: {fileID: 3540600277522596486, guid: 26d2fd2eca455fb44ab78411674bcf69, type: 3}
+  localGraph: {fileID: 0}
 --- !u!95 &1284500952
 Animator:
   serializedVersion: 7
@@ -29522,7 +29524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 474945776060404747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29645,7 +29647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3336327499775330831}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda4.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29776,7 +29778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7306611697105112909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CanonFront_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29815,7 +29817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4176345178675724185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda3.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29910,35 +29912,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646916007426917560}
-  - component: {fileID: 1325611886942965491}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1325611886942965491
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325611886942965490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.13, y: 2.31, z: 1}
-  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!4 &1333953250283229388
 Transform:
   m_ObjectHideFlags: 0
@@ -29952,6 +29932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3945503863340199420}
   - {fileID: 7788034906107380755}
   - {fileID: 4394425839458497926}
   - {fileID: 2437274212049673806}
@@ -29962,7 +29943,6 @@ Transform:
   - {fileID: 8695621408243752697}
   - {fileID: 7370251616083915920}
   - {fileID: 2068941866803997709}
-  - {fileID: 3945503863340199420}
   m_Father: {fileID: 646916007426917560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1377515833054576085
@@ -30122,7 +30102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370251616083915920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda5.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30320,13 +30300,63 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1924433986923937162}
-  m_Layer: 0
+  - component: {fileID: 2128479772801857221}
+  - component: {fileID: 2128479772801857222}
+  m_Layer: 7
   m_Name: CanonBack
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2128479772801857221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128479772801857220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.91, y: 1.37, z: 1}
+  m_Center: {x: 0, y: -0.31, z: -0.47}
+--- !u!54 &2128479772801857222
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128479772801857220}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2165386761841059602
 GameObject:
   m_ObjectHideFlags: 0
@@ -30336,7 +30366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7788034906107380755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30385,7 +30415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4170557227324879313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda1.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30649,9 +30679,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333953250283229388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30894,8 +30924,8 @@ Transform:
   m_GameObject: {fileID: 5214861550608051949}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7281382, y: -0.00000008176537, z: -0.00000008657796, w: 0.68543035}
-  m_LocalPosition: {x: -1.3551471e-10, y: 0.43299115, z: 0.10562996}
-  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_LocalPosition: {x: 0, y: 0.43299115, z: 0.10562996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1924433986923937162}
@@ -30926,7 +30956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2984490624896358413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda2.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30942,7 +30972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8737523871509487359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda3.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31132,7 +31162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011231708713487161}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CanonFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31710,7 +31740,7 @@ GameObject:
   - component: {fileID: 3945503863340199420}
   - component: {fileID: 5214861550608051950}
   - component: {fileID: 5214861550608051951}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31778,8 +31808,9 @@ MonoBehaviour:
   BulletPrefab: {fileID: 2903724682167120469, guid: 774702321e8d672439df0358d4d6acc1, type: 3}
   playerInstance: {fileID: 9174361126511356546}
   fireBoneTransform: {fileID: 7306611697105112909}
-  localCollider: {fileID: 1325611886942965491}
+  localCollider: {fileID: 2128479772801857221}
   _deathVFXPrefab: {fileID: 3540600277522596486, guid: 26d2fd2eca455fb44ab78411674bcf69, type: 3}
+  localGraph: {fileID: 9151678724933521053}
 --- !u!4 &5231988273491577957
 Transform:
   m_ObjectHideFlags: 0
@@ -31806,7 +31837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657714290949016920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda2.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32278,7 +32309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3165429181616493539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda4.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32594,7 +32625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8511193618610367561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda3.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33098,7 +33129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2068941866803997709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda5.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33192,7 +33223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5956087694141046258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda5.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33208,7 +33239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394425839458497926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33300,7 +33331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2437274212049673806}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33526,7 +33557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7478379066233608888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda1.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33879,7 +33910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2841318693241191586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda4.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33910,7 +33941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8695621408243752697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda4.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34008,7 +34039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6718107255357499135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda5.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34198,7 +34229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 347743605829209327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roda3.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,7 @@ public class HPManagerScript : MonoBehaviour
     private void Start()
     {
         initialHP = hp;
+        characterMaterial.SetFloat("_max_HP", hp);
         UpdateMaterial();
     }
 
@@ -25,13 +26,7 @@ public class HPManagerScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-        if (hp == initialHP) {
-            characterMaterial.SetFloat("_dmgAmt",1f);
-        }
-        else
-        {
-            characterMaterial.SetFloat("_dmgAmt", hp/initialHP);
-        }
+        characterMaterial.SetFloat("_currentHP",hp);
         
     }
 }

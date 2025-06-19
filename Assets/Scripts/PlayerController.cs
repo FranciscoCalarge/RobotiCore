@@ -43,9 +43,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += transform.right * Input.GetAxis("Strafe") * Time.deltaTime * movespeed;
         }
-
-        verticalLerp = Mathf.Lerp(verticalLerp,Mathf.Abs(_rb.linearVelocity.y), .5f);
-        _animator.SetFloat("onAir", Mathf.Pow(verticalLerp,5f));
+        if(!Physics.Raycast(transform.parent.transform.position,Vector3.down, .5f, LayerMask.NameToLayer("Ground")))
+        {
+            verticalLerp = Mathf.Lerp(verticalLerp, Mathf.Abs(_rb.linearVelocity.y), .5f);
+            _animator.SetFloat("onAir", Mathf.Pow(verticalLerp, 5f));
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {

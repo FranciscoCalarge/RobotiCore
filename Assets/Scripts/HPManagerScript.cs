@@ -26,7 +26,8 @@ public class HPManagerScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-        characterMaterial.SetFloat("_currentHP",hp);
+        Debug.Log("Update Material:" + hp.ToString());
+        characterMaterial.SetFloat("_currentHP", hp);
         
     }
 }

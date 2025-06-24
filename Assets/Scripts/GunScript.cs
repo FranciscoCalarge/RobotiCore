@@ -21,17 +21,17 @@ public class GunScript : MonoBehaviour
         GridCast();
         if(closestEnemy != null)
         {
-            AimObject.enabled = true;
-            AimObject.transform.position = closestEnemy.position;
+
+            AimObject.transform.position = Vector3.Lerp(AimObject.transform.position, closestEnemy.transform.position,.2f);
         }
         else
         {
-            AimObject.enabled = false;
+            AimObject.transform.position = Vector3.Lerp(AimObject.transform.position,childCanvas.transform.position,.2f);
         }
 
         if(closestEnemy != null)
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.KeypadEnter))
             {
                 aimLerp=aimLerp<=0?1f:aimLerp;
                 aimLerp += Time.deltaTime;
@@ -66,6 +66,7 @@ public class GunScript : MonoBehaviour
                 Physics.Linecast(transform.position, getRayTargetPosition(i, j), out hitInfo, EnemyLayer);
                 if (hitInfo.rigidbody != null)
                 {
+                    
                     if (hitInfo.collider.CompareTag("Enemy")||hitInfo.collider.CompareTag("Tank"))
                     {
                         if (gridCastTransform == null)

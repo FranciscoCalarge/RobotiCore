@@ -1070,7 +1070,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -1216,7 +1216,7 @@
     "m_ShaderOutputName": "A",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 39.5,
+        "x": 38.79999923706055,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -5318,8 +5318,8 @@
     "m_ObjectId": "9af86d57e0874cc0ab5aaa6bd633e903",
     "m_Title": "white strips",
     "m_Position": {
-        "x": -3098.000244140625,
-        "y": -3925.000244140625
+        "x": -3098.0,
+        "y": -3925.0
     }
 }
 

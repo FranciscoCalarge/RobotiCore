@@ -14,40 +14,45 @@ public class GunScript : MonoBehaviour
     public Animator playerAnimator;
 
     private float aimLerp=0;
+    private Material AimMat;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        AimMat = AimObject.material;
+        AimObject.material = AimObject.material;
+    }
     void FixedUpdate()
     {
         GridCast();
         if(closestEnemy != null)
-        {
-
+        { 
+            AimMat.SetFloat("_Color_Lerp",Mathf.Lerp(AimMat.GetFloat("_Color_Lerp"),1,.2f));
             AimObject.transform.position = Vector3.Lerp(AimObject.transform.position, closestEnemy.transform.position,.2f);
         }
         else
         {
+            AimMat.SetFloat("_Color_Lerp", Mathf.Lerp(AimMat.GetFloat("_Color_Lerp"), 0, .2f));
             AimObject.transform.position = Vector3.Lerp(AimObject.transform.position,childCanvas.transform.position,.2f);
         }
 
-        if(closestEnemy != null)
+        if (Input.GetKey(KeyCode.KeypadEnter))
         {
-            if (Input.GetKey(KeyCode.KeypadEnter))
-            {
-                aimLerp=aimLerp<=0?1f:aimLerp;
-                aimLerp += Time.deltaTime;
+            aimLerp=aimLerp<=0?1f:aimLerp;
+            aimLerp += Time.deltaTime;
 
-                if (aimLerp > 1f) {
-                    GameObject auxBullet = Instantiate(BulletPrefab, transform.position + transform.up, Quaternion.LookRotation(closestEnemy.transform.position - transform.position));
-                    auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
-                    auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
-                    auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
-                    aimLerp = .2f;
-                }
+            if (aimLerp > 1f) {
+                GameObject auxBullet = Instantiate(BulletPrefab, transform.position + transform.up, Quaternion.LookRotation(closestEnemy.transform.position - transform.position));
+                auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
+                auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
+                auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
+                aimLerp = .2f;
             }
-            else
-            {
-                aimLerp -= Time.deltaTime;
-            }
+        }
+        else
+        {
+            aimLerp -= Time.deltaTime;
         }
         aimLerp=Mathf.Clamp01(aimLerp);
         playerAnimator.SetLayerWeight(1, aimLerp);

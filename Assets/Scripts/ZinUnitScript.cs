@@ -37,6 +37,7 @@ public class ZinUnitScript : MonoBehaviour
             if(_deathVFXPrefab)Instantiate(_deathVFXPrefab,transform.position,Quaternion.identity);
             if (localGraph != null) { localGraph.enabled = false; }
             Destroy(this.transform.gameObject, 1f);
+            AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.blast);
         }
     }
 

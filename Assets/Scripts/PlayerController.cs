@@ -48,11 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             verticalLerp = Mathf.Lerp(verticalLerp, Mathf.Abs(_rb.linearVelocity.y), .5f);
             _animator.SetFloat("onAir", Mathf.Pow(verticalLerp, 5f));
+            AudioSingleton.instance.setBoostVolume(verticalLerp);
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
-            
             _rb.AddForce(transform.up*1000*Time.deltaTime,ForceMode.Acceleration);
             Debug.Log("space");
         }

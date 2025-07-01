@@ -11,6 +11,7 @@ public class PlayAnimationOnTriggerScript : MonoBehaviour
         {
             animation.Play();
             localCollider.enabled = false;
+            AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.core);
         }
     }
 }

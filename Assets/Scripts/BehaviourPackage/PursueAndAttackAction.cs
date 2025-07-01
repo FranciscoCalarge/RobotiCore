@@ -15,6 +15,7 @@ public partial class PursueAndAttackAction : Action
     [SerializeReference] public BlackboardVariable<float> attackDistance;
     [SerializeReference] public BlackboardVariable<float>defaltShotCD;
     [SerializeReference] public BlackboardVariable<bool>flipForward;
+    [SerializeReference] public BlackboardVariable<bool>ignorelocalYRotation;
 
     GameObject self;
     Animator anim;
@@ -22,12 +23,14 @@ public partial class PursueAndAttackAction : Action
     ZinUnitScript localEnemyScript;
 
     float shotCooldown;
+    bool ignoreY;
 
     protected override Status OnStart()
     {
         self = Zin.Value;
         anim = LocalAnimator.Value;
         currentTarget = Player.Value.gameObject;
+        ignoreY = ignorelocalYRotation.Value;
         if (LocalZinScript != null)
         {
             localEnemyScript = LocalZinScript.Value;
@@ -43,7 +46,7 @@ public partial class PursueAndAttackAction : Action
         {
             float targetOffset = flipForward.Value?-1:1;
             Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position-self.transform.position+ Vector3.down * 2*targetOffset)  * Time.deltaTime;
-            self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(targetDirection*targetOffset), Time.deltaTime * 2);
+            self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(Vector3.Scale(targetDirection,new Vector3(1,ignoreY?0:1,1)) *targetOffset), Time.deltaTime * 2);
             if (anim != null) {
                 anim.SetTrigger("Fire");
             }
@@ -51,6 +54,7 @@ public partial class PursueAndAttackAction : Action
                 if (shotCooldown < 0) { 
                     localEnemyScript.FireEvent();
                     shotCooldown = defaltShotCD.Value;
+                    AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.enemyfire);
                 }
             }
 

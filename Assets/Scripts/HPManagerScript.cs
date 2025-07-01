@@ -17,6 +17,7 @@ public class HPManagerScript : MonoBehaviour
     public void TakeDamage()
     {
         hp--;
+        AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.blast);
         if (hp <= 0)
         {
             SceneManager.LoadScene(0);

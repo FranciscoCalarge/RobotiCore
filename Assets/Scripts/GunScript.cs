@@ -37,17 +37,17 @@ public class GunScript : MonoBehaviour
             AimObject.transform.position = Vector3.Lerp(AimObject.transform.position,childCanvas.transform.position,.2f);
         }
 
-        if (Input.GetKey(KeyCode.KeypadEnter))
+        if (Input.GetKey(KeyCode.Return))
         {
             aimLerp=aimLerp<=0?1f:aimLerp;
             aimLerp += Time.deltaTime;
 
-            if (aimLerp > 1f) {
+            if (aimLerp > 1f&&closestEnemy!=null) {
                 GameObject auxBullet = Instantiate(BulletPrefab, transform.position + transform.up, Quaternion.LookRotation(closestEnemy.transform.position - transform.position));
                 auxBullet.GetComponent<BulletScript>().spawnTag = "Player";
                 auxBullet.GetComponent<BulletScript>().targetTag = "Enemy";
                 auxBullet.GetComponent<BulletScript>().bulletVelocity = .5f;
-                aimLerp = .2f;
+                aimLerp = .1f;
             }
         }
         else

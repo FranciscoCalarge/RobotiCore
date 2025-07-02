@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -43,13 +44,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += transform.right * Input.GetAxis("Strafe") * Time.deltaTime * movespeed;
         }
-
-        verticalLerp = Mathf.Lerp(verticalLerp,Mathf.Abs(_rb.linearVelocity.y), .5f);
-        _animator.SetFloat("onAir", Mathf.Pow(verticalLerp,5f));
+        if(!Physics.Raycast(transform.parent.transform.position,Vector3.down, .5f, LayerMask.NameToLayer("Ground")))
+        {
+            verticalLerp = Mathf.Lerp(verticalLerp, Mathf.Abs(_rb.linearVelocity.y), .5f);
+            _animator.SetFloat("onAir", Mathf.Pow(verticalLerp, 5f));
+            AudioSingleton.instance.setBoostVolume(verticalLerp);
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {
-            
             _rb.AddForce(transform.up*1000*Time.deltaTime,ForceMode.Acceleration);
             Debug.Log("space");
         }

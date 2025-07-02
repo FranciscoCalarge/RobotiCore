@@ -9,6 +9,17 @@ public class BulletScript : MonoBehaviour
     public float bulletVelocity=0;
     bool collision=false;
 
+    private void Start()
+    {
+        if(spawnTag == "Player")
+        {
+            AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.playerfire);
+        }
+        else
+        {
+            AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.enemyfire);
+        }
+    }
 
     private void Update()
     {

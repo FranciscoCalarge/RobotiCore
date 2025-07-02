@@ -10,12 +10,14 @@ public class HPManagerScript : MonoBehaviour
     private void Start()
     {
         initialHP = hp;
+        characterMaterial.SetFloat("_max_HP", hp);
         UpdateMaterial();
     }
 
     public void TakeDamage()
     {
         hp--;
+        AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.blast);
         if (hp <= 0)
         {
             SceneManager.LoadScene(0);
@@ -25,13 +27,8 @@ public class HPManagerScript : MonoBehaviour
 
     void UpdateMaterial()
     {
-        if (hp == initialHP) {
-            characterMaterial.SetFloat("_dmgAmt",1f);
-        }
-        else
-        {
-            characterMaterial.SetFloat("_dmgAmt", hp/initialHP);
-        }
+        Debug.Log("Update Material:" + hp.ToString());
+        characterMaterial.SetFloat("_currentHP", hp);
         
     }
 }

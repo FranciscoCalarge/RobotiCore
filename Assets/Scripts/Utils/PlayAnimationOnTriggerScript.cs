@@ -4,6 +4,7 @@ public class PlayAnimationOnTriggerScript : MonoBehaviour
 {
     public Animation animation;
     public Collider localCollider;
+    public bool iscore = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +12,13 @@ public class PlayAnimationOnTriggerScript : MonoBehaviour
         {
             animation.Play();
             localCollider.enabled = false;
-            AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.core);
+            if (iscore) { 
+                AudioSingleton.instance.PlaySFX(AudioSingleton.sfx.core);
+            }
+            else
+            {
+                Destroy(gameObject,2f);
+            }
         }
     }
 }

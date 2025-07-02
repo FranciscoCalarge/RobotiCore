@@ -33,10 +33,17 @@ public class AudioSingleton : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else
+        {
+            instance = this;
+        }
 
-        instance = this;
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        setBoostVolume(0f);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

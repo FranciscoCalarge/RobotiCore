@@ -45,7 +45,7 @@ public partial class PursueAndAttackAction : Action
         if (Zin != null && Vector3.Distance(Zin.Value.transform.position, Player.Value.transform.position) < attackDistance.Value)
         {
             float targetOffset = flipForward.Value?-1:1;
-            Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position-self.transform.position+ Vector3.down * 2*targetOffset)  * Time.deltaTime;
+            Vector3 targetDirection = Vector3.Normalize(currentTarget.transform.position-self.transform.position+Vector3.up)  * Time.deltaTime;
             self.transform.rotation = Quaternion.Lerp(self.transform.rotation, Quaternion.LookRotation(Vector3.Scale(targetDirection,new Vector3(1,ignoreY?0:1,1)) *targetOffset), Time.deltaTime * 2);
             if (anim != null) {
                 anim.SetTrigger("Fire");

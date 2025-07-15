@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Nodes:
   - rid: 6518780545223360512
   - rid: 6518780545223360515
-  m_VersionTimestamp: 638857751409616225
+  m_VersionTimestamp: 638878504125213647
   m_DebugInfo: {fileID: -6064200516851370064}
   m_RuntimeGraph: {fileID: 4295899522101047953}
   AssetID:
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_MainBlackboardAuthoringAsset: {fileID: 1336029651356833133}
   m_CommandBuffer:
     m_Commands: []
+  m_SubgraphsInfo: []
   references:
     version: 2
     RefIds:
@@ -103,6 +104,7 @@ MonoBehaviour:
           m_Value1: 11549843281177505721
         m_FieldValues: []
         Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
     - rid: 6518780545223360513
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -116,7 +118,7 @@ MonoBehaviour:
     - rid: 6518780545223360515
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -185.40488, y: 297.18726}
+        Position: {x: -2.2048473, y: 173.18715}
         ID:
           m_Value0: 17118073170379346819
           m_Value1: 5094405892136519300
@@ -304,8 +306,8 @@ MonoBehaviour:
   m_Name: tankGraph Blackboard
   m_EditorClassIdentifier: 
   AssetID:
-    m_Value0: 0
-    m_Value1: 0
+    m_Value0: 9515714773335726946
+    m_Value1: 2092183918121051387
   m_Variables:
   - rid: 6518780545223360514
   - rid: 6518780545223360527
@@ -358,19 +360,31 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 2956441900622544896
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
+      data: 
+    - rid: 2956441900622544897
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
+      data: 
     - rid: 6518780545223360531
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
           m_Value0: 9515714773335726946
           m_Value1: 2092183918121051387
-        m_DebugInfo: {fileID: 0}
-        Root:
-          rid: 6518780545223360532
+        m_DebugInfo: {fileID: -6064200516851370064}
         BlackboardReference:
           rid: 6518780545223360533
         BlackboardGroupReferences: []
-        m_VersionTimestamp: 638857751409616225
+        Root:
+          rid: 6518780545223360532
+        m_ActiveNodes: []
+        m_NodesToTick: []
+        m_NodesToEnd:
+          rid: 2956441900622544896
+        m_EndedNodes:
+          rid: 2956441900622544897
+        m_VersionTimestamp: 638878504125213647
     - rid: 6518780545223360532
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -384,6 +398,7 @@ MonoBehaviour:
         m_Child:
           rid: 6518780545223360534
         Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
     - rid: 6518780545223360533
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
